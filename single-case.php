@@ -7,6 +7,7 @@
     </main>
     <aside role="complementary">
         <?php include 'libs/includes/sidemenu-case.php'; ?>
+        <?php include 'libs/includes/sidebar-form.php'; ?>
     </aside>
     <?php endwhile; endif; ?>
 </section>

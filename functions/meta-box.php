@@ -10,6 +10,7 @@ function smamo_add_boxes(){
     require('meta-box/video.php');
     require('meta-box/colors.php');
     require('meta-box/show-featured.php');
+    require('meta-box/kontaktformular.php');
 
 
 return $mb;

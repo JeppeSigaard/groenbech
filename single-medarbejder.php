@@ -8,6 +8,7 @@
     </main>
     <aside role="complementary">
         <?php include 'libs/includes/sidemenu-medarbejder.php'; ?>
+        <?php include 'libs/includes/sidebar-form.php'; ?>
     </aside>
     <?php endwhile; endif; ?>
 </section>

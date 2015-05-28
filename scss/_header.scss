@@ -75,22 +75,23 @@ $top-height: 50px;
 
             li{
                 position:relative;
-                width:40px;
-                height:40px;
-                margin-top:5px;
+                width:37px;
+                height:37px;
+                margin-top:6px;
                 margin-right:10px;
 
 
                 &:before{
                     position: absolute;
-                    width:20px;
-                    height:20px;
+                    width:37px;
+                    height:37px;
+                    line-height: 38px;
                     top:0;
                     left:0;
                     background:$gb-contrast;
                     display: inline-block;
                     border-radius: 5px;
-                    padding: 10px;
+                    padding: 0px;
                     color: #fff;
                     @include anchor-transition;
                     @include text-shadow(20px,.3);
@@ -101,8 +102,8 @@ $top-height: 50px;
                     position:absolute;
                     z-index:2;
                     font-size: 0px;
-                    width:40px;
-                    height:40px;
+                    width:37px;
+                    height:37px;
                     top:0px;
                     left:0px;
                 }
@@ -116,7 +117,7 @@ $top-height: 50px;
                     font-weight:bold;
                     position:relative;
                     width:auto;
-                    line-height: 38px;
+                    line-height: 35px;
                     margin-right:50px;
                     
                     &:hover{

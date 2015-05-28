@@ -1,0 +1,70 @@
+.main-medarbejder{
+    .single-img,article{
+        margin-bottom:40px;
+    }
+
+    .single-img{
+
+        padding-top:100%;
+
+    }
+
+    .single-title{
+        font-size: 1.1rem;
+        margin-bottom:15px;
+    }
+
+    article{
+
+        &:after{
+                display: none;
+            }
+
+    }
+
+    .ct-list{
+        position: relative;
+        clear:both;
+        @include top-line($gb-contrast,0px);
+        overflow:hidden;
+        margin:0px;
+    }
+
+    .ct-info{
+
+        padding:10px 0px;
+        margin:10px 0px;
+        position: relative;
+        @include bottom-line($gb-contrast,0px);
+        @include top-line($gb-contrast,0px);
+
+        p{
+            margin: 5px 0px;
+            font-size:.9rem;
+        }
+    }
+}
+
+@media(min-width:640px){
+
+    .main-medarbejder{
+        .single-img, article{
+            display: inline-block;
+            width:48%;
+            float:left;
+        }
+
+        .single-img{
+            padding-top:48%;
+            margin:0px 2% 40px 0px;
+        }
+
+        article{
+            margin:0px 0px 40px 2%;
+
+        }
+
+
+    }
+
+}

@@ -1,0 +1,44 @@
+#top-menu div ul li.qtranxs-lang-menu{
+    
+    margin-left: 10px;
+    position: relative;
+    
+    
+    ul.sub-menu{
+        display: inline-block;
+        overflow:auto;
+    }
+    
+    &:before{
+        content:'/';
+        font-size:12px;
+        position:absolute;
+        color:$gb-contrast;
+        left:-5px;
+    }
+    
+    
+    >a[title="English"] + ul li.qtranxs-lang-menu-item-en{
+        display: none;
+    }
+    
+    >a[title="Dansk"] + ul li.qtranxs-lang-menu-item-da{
+        display: none;
+    }
+    
+    li a:before, li:first-child a:before{
+        content:none;
+    }
+
+    a {
+        
+        img{
+            display: none;
+        }
+    }
+    >a{
+        display: none;
+    }
+
+
+}

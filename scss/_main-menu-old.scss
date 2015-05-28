@@ -1,0 +1,335 @@
+/* DEN HVIDE STRIBE (LOL) */
+/*-------------------------------------------------*/
+
+// laptop
+$main-menu-height: 70px;
+$main-menu-height-small: 55px;
+$logo-size:160px;
+$seconds: .2s;
+
+
+// Mobil
+$main-menu-height-m: 50px;
+$logo-size-m:110px;
+$seconds-m: .2s;
+
+
+// Easy mixin
+@mixin height-line-height(){
+    height:$main-menu-height;
+    line-height: $main-menu-height;
+    transition:height $seconds, line-height $seconds, width $seconds;
+}
+
+
+header.fixed{
+    position:fixed;
+    top:0;
+
+    >div{
+        height:$main-menu-height-small;
+        line-height: $main-menu-height-small;
+        >a#logo{
+            line-height: 50px;
+            height: 50px;
+        }
+
+        >ul>li>a{
+            height:$main-menu-height-small;
+            line-height: $main-menu-height-small;
+        }
+    }
+}
+
+header{
+    position:absolute;
+    top:50px;
+    left:0;
+    width:100%;
+    @include global-shadow(10px, .2);
+    @include bottom-line($gb-contrast, 5px);
+    z-index:1000;
+    background:white;
+
+
+    >div{
+        @include container-960;
+        @include height-line-height();
+
+        >a#logo{
+            float:left;
+            text-align: center;
+            width:$logo-size;
+            @include height-line-height();
+            vertical-align: middle;
+            padding-right:20px;
+            position:relative;
+            @include hover-effect(.7s,0.3);
+
+
+
+            img{
+                vertical-align: middle;
+                margin-top:-5px;
+            }
+        }
+
+        >ul>li{
+            float:left;
+            position: static;
+            display: block;
+
+            >a{
+                display: block;
+                padding:0px 20px;
+                background:transparent;
+                @include height-line-height();
+                @include anchor-transition;
+                text-align: center;
+                color:$gb-contrast;
+                text-decoration: none;
+
+                &:hover{
+                    background:$gb-contrast;
+                    color:white;
+                }
+            }
+
+            &.active{
+
+                >a{
+                    background:$gb-contrast;
+                    color:white;
+                }
+
+                >div{
+                    visibility: visible;
+                    opacity:1;
+                    margin-top:0px;
+                    height: auto;
+                }
+            }
+            >div{
+                z-index:-1;
+                opacity:0;
+                visibility:hidden;
+                position: absolute;
+                width:100%;
+                height:0;
+                left:0;
+                padding:40px 0px 60px;
+                background:$gb-contrast;
+                @include global-shadow(10px,.5);
+                //margin-top:10px;
+                transition: margin-top .3s,  opacity .1s;
+                border-top: 3px solid rgba(0,0,0,.1);
+
+
+                >ul{
+
+                    @include container-960;
+                    position:relative;
+
+                    >li.menu-item-object-menustruktur{
+
+                        display: inline-block;
+                        box-sizing: border-box;
+                        width:33.33333333%;
+                        float:left;
+
+                        >a{
+                            display: none;
+                        }
+                    }
+
+                    >li.menu-item-object-menustruktur.double{
+                        width:66.66666666%;
+                    }
+
+                    li{
+
+
+                        li:first-child a, li:first-child span{
+                            border-top: 1px dashed rgba(255,255,255,.5);
+                        }
+                        a, span{
+
+                            position:relative;
+                            display: block;
+                            font-size:13px;
+                            margin-right: 60px;
+                            line-height:1;
+                            padding:15px 0px 15px 10px;
+                            color:white;
+                            text-decoration: none;
+                            border-bottom: 1px dashed rgba(255,255,255,.5);
+                            @include anchor-transition;
+                            vertical-align: middle;
+
+                        }
+
+                        span{
+                            line-height:1.4;
+                        }
+
+                        a:hover{
+                                background:white;
+                                color:$gb-dark;
+                                padding:15px 0px 15px 15px;
+
+                                &:after{
+                                    //background:white;
+                                    color:$gb-dark;
+                                }
+                            }
+
+                        a:after{
+                            position: relative;
+                            content: '>';
+                            width: 25px;
+                            height: 25px;
+                            vertical-align: middle;
+                            float: right;
+                            //background: $gb-contrast-2;
+                            color: white;
+                            margin-right:10px;
+                            margin-top:-6px;
+                            line-height: 25px;
+                            text-align: center;
+                            @include anchor-transition;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:768px){
+
+    #top-menu #icon-menu{
+        display: none;
+    }
+
+    #mobile-menu{
+        display: block;
+        position: absolute;
+        right:20px;
+        top:10px;
+        height:15px;
+        width: 30px;
+        border-top:5px solid $gb-contrast;
+        border-bottom:5px solid $gb-contrast;
+
+        &:before{
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            font-size: 8.8px;
+            line-height: 0;
+            content: 'menu';
+            color: $gb-contrast;
+            font-weight: bold;
+            top: 7.5px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+    }
+
+    header>div>ul>li>div>ul>li.menu-item-object-menustruktur{
+        width:100%;
+        float:none;
+        display: block;
+    }
+
+    header.fixed>div{
+        height: 40px;
+        line-height: 40px;
+    }
+
+    header.fixed>div>ul>li>a {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    header.visible>div>ul{
+        display: block;
+        right:0;
+    }
+    header>div{
+
+        height:$main-menu-height-m;
+
+        >a#logo{
+            width:$logo-size-m;
+            height:$main-menu-height-m;
+            line-height: $main-menu-height-m;
+        }
+
+
+
+        >ul{
+            display: block;
+            position:fixed;
+            top:0px;
+            height:100%;
+            overflow-x: scroll;
+            right:-250px;
+            transition:right .1s;
+            width:220px;
+            z-index:1000;
+            @include global-shadow(20px, .9);
+
+            background:$gb-contrast;
+
+
+            >li{
+                display: block;
+                position: static;
+                width:100%;
+
+               >a{
+                    text-align: left;
+                    height: 60px;
+                    line-height: 60px;
+                    color:white;
+                    background:$gb-contrast;
+                }
+
+                >div{
+                    position:relative;
+                    padding: 0px;
+                    opacity:1;
+                    display: block;
+                    visibility: visible;
+                    height:auto;
+                    z-index:1;
+                    border:none;
+                    box-shadow: none;
+
+                    >ul li a, >ul li a:hover{
+                        padding: 10px 0px 10px 0px;
+                        margin-right:0px;
+                        font-size:.7rem;
+                        background:$gb-contrast;
+                        color:white;
+
+                        &:after{
+                            font-size:.5rem;
+                            width:15px;
+                            margin-right:0px;
+                        }
+                    }
+
+                    .text-item{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+}

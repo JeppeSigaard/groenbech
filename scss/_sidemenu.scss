@@ -1,0 +1,49 @@
+$pad : 8px;
+
+#side-menu{
+
+    //padding:5px;
+    //background:#ddd;
+    box-sizing: border-box;
+    padding-bottom:40px;
+    position: relative;
+    @include bottom-line($gb-contrast,20px);
+
+    a{
+        padding:$pad 20px;
+        display: block;
+        box-sizing: border-box;
+        background:$gb-contrast;
+        color:white;
+        text-decoration: none;
+        margin:0px 0px 2px;
+        font-size: .8rem;
+        line-height: 1.4;
+        @include anchor-transition();
+        @include global-shadow(5px,.2);
+
+        &.side-parent{
+            font-size: 1.2rem;
+            font-weight:bold;
+        }
+
+    }
+
+    ul{
+
+        a:hover{
+            background:$gb-contrast-2;
+            padding:$pad 18px $pad 22px;
+        }
+
+        a.active{
+            background:$gb-contrast-2;
+            padding:$pad 20px;
+        }
+
+        .current_page_item a, .current-menu-item a {
+            background:$gb-contrast-2;
+            padding:$pad 20px $pad 20px;
+        }
+    }
+}

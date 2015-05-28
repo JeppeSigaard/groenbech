@@ -1,0 +1,76 @@
+footer{
+    clear:both;
+}
+
+.mb-list{
+    display: block;
+    font-size:0;
+    @include container-960;
+    z-index:1;
+    position:relative;
+
+    li{
+        display: inline-block;
+    }
+
+
+    &.has-9 li{
+        width:11.11111111%;
+    }
+
+    &.has-8 li{
+        width:12.5%;
+
+    }
+
+    &.has-7 li{
+        width:14,285%;
+
+    }
+
+    &.has-6 li{
+        width:16.6666666%;
+
+    }
+
+    &.has-5 li{
+        width:20%;
+
+    }
+
+    &.has-4 li{
+        width:25%;
+    }
+
+    &.has-3 li{
+        width:33.333333%;
+    }
+
+    &.has-2 li{
+        width:50%;
+    }
+
+    &.has-1 li{
+        width:100%;
+    }
+}
+
+.single-medarbejder .mb-list{
+    display: none;
+}
+
+
+.footer-menu{
+
+    border-top:25px solid $gb-contrast;
+    margin-top: -2px;
+    padding:0px 0px 100px;
+    z-index:2;
+    position:relative;
+    @include global-shadow(10px, 1);
+
+
+    >div{
+        @include container-960;
+    }
+}

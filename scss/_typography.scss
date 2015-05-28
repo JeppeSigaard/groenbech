@@ -1,0 +1,140 @@
+/* TYPOGRAFI STANDARD */
+$font-family-standard: verdana, arial, helvetica, sans-serif;
+
+
+/* FARVER
+------------------------------------------------------*/
+$font-color     : #333333;
+$h1-color       : #333333;
+$h2-color       : #007f7f;
+$h3-color       : #007f7f;
+$h4-color       : #333333;
+
+$links-color    : #7f0000;
+
+
+/* FONT SIZE
+------------------------------------------------------*/
+body {
+	font-size: 100%;
+    color: $font-color;
+    font-family: $font-family-standard;
+	}
+
+input,
+select,
+textarea,
+table,
+tr,
+td {
+	font-size: 100%;
+	}
+
+
+
+
+/* FONT FAMILY
+------------------------------------------------------*/
+body,
+input,
+select,
+textarea,
+table,
+tr,
+td {
+	font-family: $font-family-standard;
+	}
+
+
+
+
+/* HEADINGS OG P
+------------------------------------------------------*/
+h1 {
+	color: $h1-color;
+	font-size: 150%;
+	margin-bottom: 0.5em;
+	padding-top: 0;
+	margin-top: 0;
+	font-weight: normal;
+	}
+
+h2 {
+	color: $h2-color;
+	font-size: 130%;
+	font-weight: normal;
+	}
+
+h3 {
+	color: $h3-color;
+	font-size: 120%;
+	}
+
+h4 {
+	font-size: 110%;
+    color: $h4-color;
+	}
+
+h5 {
+	font-size: 93%;
+	}
+
+h6 {
+	font-size: 100%;
+	}
+
+h2, h3, h4, h5, h6 {
+	margin-bottom: 0;
+	margin-top: 1.5em;
+	}
+
+p {
+	margin-bottom: 1rem;
+	margin-top:0;
+    font-size: .8rem;
+	}
+
+article {
+    line-height:1.5;
+    padding-bottom: 40px;
+    position: relative;
+    @include bottom-line($gb-contrast,20px);
+}
+
+
+strong{
+        font-weight:bold;
+    }
+
+
+
+/* LINKS
+------------------------------------------------------*/
+a {
+    color: $links-color;
+    text-decoration: none;
+    font-weight:400;
+}
+
+a:hover, a:active {
+
+    //text-decoration: underline;
+
+
+}
+
+a img {
+	border: 0;
+	}
+
+
+
+
+/* LISTER
+------------------------------------------------------*/
+article ul, article ol {
+	font-size: .8rem;
+    padding-left:20px;
+    line-height:1.6;
+    list-style: disc;
+	}

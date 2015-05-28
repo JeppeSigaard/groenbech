@@ -1,0 +1,75 @@
+.ct-personer{
+
+    display: block;
+    overflow: auto;
+    margin:0px -20px;
+
+    >strong{
+        display: block;
+        margin:20px;
+    }
+
+    >a{
+        display: inline-block;
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        padding: 20px 10px 10px;
+        color:$gb-dark;
+        text-decoration: none;
+        position: relative;
+
+        >div{
+            display: block;
+            position: relative;
+
+
+
+            >img{
+                width:100%;
+                @include global-shadow(10px,.1);
+            }
+
+            >span{
+                display: block;
+                color: #252525;
+                width: 100%;
+                font-size: 0.8rem;
+                padding-top: 27px;
+                padding-bottom:3px;
+                position: relative;
+                font-weight:bold;
+                @include top-line($gb-contrast, 15px);
+            }
+        }
+
+        &:hover>div>span{
+            bottom:0px;
+        }
+
+    }
+
+
+
+}
+
+@media(min-width:640px){
+    .ct-personer >a{
+         width: 33.333%;
+    }
+}
+
+
+@media(min-width:768px){
+    .ct-personer >a{
+         width: 25%;
+    }
+}
+
+
+@media(min-width:960px){
+    .ct-personer >a{
+         width: 33.33333%;
+    }
+}
+

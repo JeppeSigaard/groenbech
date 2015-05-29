@@ -39,19 +39,24 @@ function smamo_sidebar_form_send(form,url,data){
 
 }
 
-
-$('#sidebar-form').click(function(e){
-
-    var target = $(e.target);
-    if(target.is('.ct-form a')){
+$(function(){if($('#sidebar-form').length){
     
-        e.preventDefault();
-        
-        var form = target.parents('form'),
-            formData = form.serialize(),
-            formUrl = form.attr('action');
-        
-        smamo_sidebar_form_send(form,formUrl,formData);
-    }
+    autosize($('#sidebar-form textarea'));
     
-});
+    $('#sidebar-form').click(function(e){
+
+        var target = $(e.target);
+        if(target.is('.ct-form a')){
+
+            e.preventDefault();
+
+            var form = target.parents('form'),
+                formData = form.serialize(),
+                formUrl = form.attr('action');
+
+            smamo_sidebar_form_send(form,formUrl,formData);
+        }
+
+    });
+    
+}});

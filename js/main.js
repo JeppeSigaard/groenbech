@@ -1,4 +1,5 @@
 // @koala-append 'jq.min.js';
+// @koala-append 'autosize.js';
 // @koala-append 'menu.js';
 // @koala-append 'slider.js';
 // @koala-append 'sidemenu.js';

@@ -108,10 +108,15 @@ strong{
 
 /* LINKS
 ------------------------------------------------------*/
-a {
+artivcle a {
+    color: $links-color;
+    text-decoration: none;
+    font-weight:400;
+}
+
+artivcle a {
     color: $article-links-color;
     text-decoration: underline;
-    font-weight:400;
 }
 
 article a:hover, article a:active {

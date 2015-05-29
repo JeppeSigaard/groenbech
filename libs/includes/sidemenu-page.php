@@ -55,7 +55,7 @@ if(isset($menu_parent) && !empty($sub_menu)) :
 ?>
 
 <div id="side-menu">
-    <a class="side-parent" href="<?php echo apply_filters('the_permalink',get_the_permalink($case->ID)); ?>">
+    <a class="side-parent" href="<?php echo apply_filters('the_permalink',get_the_permalink($post_parent)); ?>">
         <?php echo get_the_title($post_parent); ?>
     </a>
     <ul class="side-children">

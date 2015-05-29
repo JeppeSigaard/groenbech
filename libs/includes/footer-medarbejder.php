@@ -7,7 +7,12 @@ $medarbejdere = get_posts(array(
     'suppress_filters' => true
 ));
 $i = 0;
-foreach($medarbejdere as $mb){$i++;}?>
+foreach($medarbejdere as $mb){
+    $img = wp_get_attachment_image_src(get_post_meta($mb->ID,'footer_image',true),'mb-footer');
+    if ($img){$i++;}
+}
+
+?>
 <ul class="mb-list has-<?php echo $i; ?>">
 <?php
 

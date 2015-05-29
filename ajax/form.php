@@ -33,8 +33,6 @@ $formdata = array(
     
 );
 
-// Send data (debug_mode)
-$response['data'] = $formdata;
 
 
 

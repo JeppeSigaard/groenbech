@@ -66,6 +66,17 @@
             color:$gb-contrast-2;
             background:$gb-white-rgba;
         }
+        
+        &#link-play{
+            &:before{
+                content: "\f103";
+                padding-left: 0px;
+                padding-right: 2px;
+                //background:transparent;
+                //box-shadow: none;
+                //text-shadow: .5px .5px 0px rgba(black,.4);
+            }
+        }
     }
 
 }

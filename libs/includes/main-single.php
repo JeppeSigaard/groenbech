@@ -1,15 +1,36 @@
-<?php $embed_code = wp_oembed_get(get_post_meta(get_the_ID(),'add_video',true)); ?>
-<?php if(!isset($image_size)){$image_size = 'widescreen-960';} ?>
+<?php 
 
-<?php if(has_post_thumbnail()) : ?>
-<div class="single-img">
+$embed_code = wp_oembed_get(get_post_meta(get_the_ID(),'add_video',true)); 
+
+if(!isset($image_size)){$image_size = 'widescreen-960';} 
+
+$thumb_url = '';
+$obj_begin = 'div'; 
+$obj_end = '/div';
+if(!$embed_code) {
+    $thumb_url = esc_url(get_post_meta(get_the_ID(),'add_url',true));
+    $thumb_url_new = (get_post_meta(get_the_ID(),'add_url_blank',true) == '1') ? 'target="_blank"' : '' ;
+}
+if($thumb_url !== ''){
+
+    $obj_begin = 'a href="'.$thumb_url.'" '.$thumb_url_new;
+    $obj_end = '/a';
+
+}
+
+if(has_post_thumbnail()) : ?>
+
+<<?php echo $obj_begin; ?> class="single-img">
     <?php the_post_thumbnail($image_size); ?>
     <?php if($embed_code): echo $embed_code;?>
-    <div id="video-play"></div>
-    <?php endif;?>
-</div>
+        <div id="video-play"></div>
+    <?php elseif($thumb_url) : ?>
+        <div id="link-play"></div>
+    <?php endif; ?>
+<<?php echo $obj_end; ?>>
 
 <?php elseif($embed_code) : ?>
+
 <div class="single-video">
     <?php echo $embed_code; ?>
 </div>

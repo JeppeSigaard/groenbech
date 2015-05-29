@@ -7,10 +7,11 @@ $font-family-standard: verdana, arial, helvetica, sans-serif;
 $font-color     : #333333;
 $h1-color       : #333333;
 $h2-color       : #007f7f;
-$h3-color       : #007f7f;
+$h3-color       : #333333;
 $h4-color       : #333333;
 
-$links-color    : #7f0000;
+$links-color : $gb-contrast-2;
+$article-links-color : $font-color;
 
 
 /* FONT SIZE
@@ -61,31 +62,28 @@ h1 {
 
 h2 {
 	color: $h2-color;
-	font-size: 130%;
+	font-size: 120%;
 	font-weight: normal;
 	}
 
 h3 {
 	color: $h3-color;
-	font-size: 120%;
-	}
-
-h4 {
-	font-size: 110%;
-    color: $h4-color;
-	}
-
-h5 {
 	font-size: 93%;
 	}
 
-h6 {
-	font-size: 100%;
+h4 {
+	font-size: .8rem;
+    font-weight: bold;
+    color: $h4-color;
+	}
+
+h1,h5,h6,h7 {
+	font-size: .8rem;
 	}
 
 h2, h3, h4, h5, h6 {
-	margin-bottom: 0;
-	margin-top: 1.5em;
+	margin-bottom: .75rem;
+	margin-top: .75rem;
 	}
 
 p {
@@ -111,16 +109,13 @@ strong{
 /* LINKS
 ------------------------------------------------------*/
 a {
-    color: $links-color;
-    text-decoration: none;
+    color: $article-links-color;
+    text-decoration: underline;
     font-weight:400;
 }
 
-a:hover, a:active {
-
-    //text-decoration: underline;
-
-
+article a:hover, article a:active {
+    text-decoration: underline;
 }
 
 a img {

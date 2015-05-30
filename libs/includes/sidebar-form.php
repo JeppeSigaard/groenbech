@@ -5,6 +5,10 @@ if($ct_form_active && $ct_form_active == '1') :
 
 $ct_form_text = get_post_meta(get_the_ID(),'ct-form-text',true);
 $ct_form_receiver = get_post_meta(get_the_ID(),'ct-form-receiver',true);
+if($ct_form_receiver == ''){
+    $footer_options = get_option('footer_options');
+    $ct_form_receiver = $footer_options['email'];
+}
 
 ?>
 <div id="sidebar-form">

@@ -154,6 +154,35 @@ header{
     }
 
 @media(max-width:840px){
+    
+    #header.visible #mobile-menu-close{
+        right:220px;
+        opacity:1;
+    }
+    #mobile-menu-close{
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        top: 0;
+        right: 0;
+        opacity:0;
+        transition:right .2s, opacity .2s;
+        background-color: #007076;
+        color:white;
+        display: block;
+        position: fixed;
+        z-index: 1001;
+        
+        
+        &:before{
+            font-family: 'dashicons';
+            content: "\f335";
+            
+        }
+    }
+    
+    
 
     #top-menu #icon-menu{
         display: none;
@@ -191,12 +220,12 @@ header{
         display: block;
     }
 
-    header.fixed>div{
+    header>div{
         height: 40px;
         line-height: 40px;
     }
 
-    header.fixed>div>ul>li>a {
+    header>div>ul>li>a {
         height: 40px;
         line-height: 40px;
     }
@@ -222,7 +251,8 @@ header{
             position:fixed;
             top:0px;
             height:100%;
-            overflow-x: scroll;
+            overflow-y: scroll;
+            overflow-x: hidden;
             right:-250px;
             transition:right .1s;
             width:220px;

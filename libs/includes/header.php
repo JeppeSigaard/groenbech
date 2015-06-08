@@ -44,6 +44,7 @@ $main_menu_args = array(
 <header id="header">
     <div>
         <a href="#" title="menu" id="mobile-menu"></a>
+        <a href="#" title="menu-close" id="mobile-menu-close"></a>
         <a id="logo" href="<?php echo home_url('/') ?>" title="<?php wp_title();?>">
             <img src="<?php echo( get_header_image() ); ?>"/>
         </a>

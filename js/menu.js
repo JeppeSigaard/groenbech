@@ -27,9 +27,10 @@ jQuery(function($){
     });
 
 
-    $('#mobile-menu').click(function(){
+    $('#mobile-menu,#mobile-menu-close').click(function(){
 
         $('#header').toggleClass('visible');
 
     });
+    
 });

@@ -44,9 +44,10 @@ if(!empty($item) && empty($slide_link)){
 
 
 // Tags
-$tags = wp_get_post_terms($slide->ID,'emne');
+$tag_args = array('orderby' => 'count', 'order' => 'DESC');
+$tags = wp_get_post_terms($slide->ID,'emne',$tag_args);
 if (!empty($item) && empty($tags)){
-    $tags = wp_get_post_terms($item->ID,'emne');
+    $tags = wp_get_post_terms($item->ID,'emne',$tag_args);
 }
 
 // Farvevælger

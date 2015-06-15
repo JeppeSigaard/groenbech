@@ -46,7 +46,7 @@ if(has_post_thumbnail()) : ?>
         <p><strong>Email:</strong> <a href="mailto:<?php echo $ct_mail; ?>"><?php echo $ct_mail; ?></a></p>
     </div>
     <?php endif; ?>
-    <?php  $i = 0;$tags = wp_get_post_terms(get_the_ID(),'emne');?>
+    <?php  $i = 0;$tags = wp_get_post_terms(get_the_ID(),'emne', array('orderby' => 'count', 'order' => 'DESC'));?>
     <?php if(!empty($tags)): ?>
     <ul class="tags-list">
         <strong><?php echo smamo_lang('Læs mere om: ','More about: ');?></strong>

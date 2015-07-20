@@ -38,7 +38,7 @@ if($ct_form_receiver == ''){
             <label for="kommentar"><?php echo smamo_lang('Tilføj kommentar','Add comment'); ?></label>
             <textarea name="kommentar" placeholder="Peter Jensen"></textarea>
         </div>
-        <div class="g-recaptcha" data-sitekey="6LdKBQoTAAAAAMaqbU4Chf4FF6_ECAzU5hc68tbH"></div>
+        <div class="g-recaptcha"  data-sitekey="6LdKBQoTAAAAAMaqbU4Chf4FF6_ECAzU5hc68tbH"></div>
         <a href="#" title="indsend">Send</a>
 
     </form>

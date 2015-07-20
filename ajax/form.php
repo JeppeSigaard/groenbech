@@ -34,12 +34,9 @@ $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR
 if (!$resp->isSuccess()){
     
     $response['error'] = 'Du skal bekræfte at du ikke er en robot.';
-    
-    foreach ($resp->getErrorCodes() as $code) {
-        $response['error'].= $code.' ';
-    }
     echo json_encode($response);
     exit;
+    
 }
 
 

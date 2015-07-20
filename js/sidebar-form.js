@@ -4,6 +4,10 @@ function smamo_sidebar_form_return(form,response){
         var message = $('<div class="ct-form-message error"></div>');
         message.html(response.error);
         
+        if(grecaptcha){
+        grecaptcha.reset();
+        }
+        
         form.prepend(message);
         form.removeClass('loading');
         

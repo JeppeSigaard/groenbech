@@ -9,7 +9,6 @@ if($ct_form_receiver == ''){
     $footer_options = get_option('footer_options');
     $ct_form_receiver = $footer_options['email'];
 }
-
 ?>
 <div id="sidebar-form">
     <form method="POST" class="ct-form" id="ct-form-<?php the_ID(); ?>" action="<?php echo get_template_directory_uri() ?>/ajax/form.php">
@@ -39,7 +38,7 @@ if($ct_form_receiver == ''){
             <label for="kommentar"><?php echo smamo_lang('Tilføj kommentar','Add comment'); ?></label>
             <textarea name="kommentar" placeholder="Peter Jensen"></textarea>
         </div>
-
+        <div class="g-recaptcha" data-sitekey="6LdKBQoTAAAAAMaqbU4Chf4FF6_ECAzU5hc68tbH"></div>
         <a href="#" title="indsend">Send</a>
 
     </form>

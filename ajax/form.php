@@ -15,10 +15,15 @@ require '../../../../wp-load.php';
 $response = array();
 
 // Nonce check
-
 $retrieved_nonce = $_REQUEST['nonce_form'];
-$response['nonce_verify'] = wp_verify_nonce($retrieved_nonce, 'smamo_nonce_this' );
-$response['nonce'] = wp_strip_all_tags($_REQUEST['nonce_form']);
+// $response['nonce_verify'] = wp_verify_nonce($retrieved_nonce, 'smamo_nonce_this' );
+// $response['nonce'] = wp_strip_all_tags($_REQUEST['nonce_form']);
+if(!wp_verify_nonce($retrieved_nonce, 'smamo_nonce_this' )){
+    $response['error'] = 'Nonce check error.';
+    echo json_encode($response);
+    exit;
+}
+
 
 // Indstil formdata
 $formdata = array(

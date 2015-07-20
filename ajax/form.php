@@ -14,6 +14,12 @@ require '../../../../wp-load.php';
 // Klargør response array til senere json_encode();
 $response = array();
 
+// Nonce check
+
+$retrieved_nonce = $_REQUEST['nonce_form'];
+$response['nonce_verify'] = wp_verify_nonce($retrieved_nonce, 'smamo_nonce_this' );
+$response['nonce'] = wp_strip_all_tags($_REQUEST['nonce_form']);
+
 // Indstil formdata
 $formdata = array(
     

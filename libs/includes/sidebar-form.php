@@ -13,6 +13,7 @@ if($ct_form_receiver == ''){
 ?>
 <div id="sidebar-form">
     <form method="POST" class="ct-form" id="ct-form-<?php the_ID(); ?>" action="<?php echo get_template_directory_uri() ?>/ajax/form.php">
+        <?php wp_nonce_field('smamo_nonce_this','nonce_form'); ?>
         <input type="hidden" name="locale" value="<?php echo get_locale(); ?>"/>
         <input type="hidden" name="post_id" value="<?php the_ID(); ?>"/>
         <input type="hidden" name="email_rec" value="<?php echo $ct_form_receiver ?>"/>

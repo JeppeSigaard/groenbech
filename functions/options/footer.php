@@ -1,17 +1,17 @@
 <?php
 
-add_action( 'admin_menu', 'gb_add_footer_menu' );
-add_action( 'admin_init', 'gb_footer_menu_init' );
+add_action( 'admin_menu', 'smamo_add_footer_menu' );
+add_action( 'admin_init', 'smamo_footer_menu_init' );
 
 
-function  gb_add_footer_menu(  ) {
+function  smamo_add_footer_menu(  ) {
 
-	add_submenu_page( 'themes.php', 'Footer', 'Footer', 'manage_options', 'smamo', 'gb_footer_function' );
+	add_submenu_page( 'themes.php', 'Footer', 'Footer', 'manage_options', 'smamo', 'smamo_footer_function' );
 
 }
 
 
-function gb_footer_menu_init(  ) {
+function smamo_footer_menu_init(  ) {
 
 	register_setting( 'footer_section_0', 'footer_options' );
 
@@ -136,7 +136,7 @@ function footer_section_0_callback(  ) {
 }
 
 
-function gb_footer_function(  ) {
+function smamo_footer_function(  ) {
 
 	?>
 	<form action='options.php' method='post'>

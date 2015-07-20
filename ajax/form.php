@@ -24,6 +24,25 @@ if(!wp_verify_nonce($retrieved_nonce, 'smamo_nonce_this' )){
     exit;
 }
 
+// reCaptcha
+$siteKey = '6LdKBQoTAAAAAMaqbU4Chf4FF6_ECAzU5hc68tbH';
+$secret = '6LdKBQoTAAAAAMSLoJeQ4w4VdPWH8BcBDt5F4SN7';
+
+require_once __DIR__ . '/../grc/autoload.php';
+$recaptcha = new \ReCaptcha\ReCaptcha($secret);
+$resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+if (!$resp->isSuccess()){
+    
+    $response['error'] = 'Du skal bekræfte at du ikke er en robot.';
+    
+    foreach ($resp->getErrorCodes() as $code) {
+        $response['error'].= $code.' ';
+    }
+    echo json_encode($response);
+    exit;
+}
+
+
 
 // Indstil formdata
 $formdata = array(

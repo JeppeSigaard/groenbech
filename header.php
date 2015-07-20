@@ -11,6 +11,11 @@
 $ct_form_active = get_post_meta(get_the_ID(),'ct-form-active',true);
 if($ct_form_active && $ct_form_active == '1') :
 ?>
+<script>
+var RecaptchaOptions = {
+   lang : 'da',
+};
+</script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <?php endif; ?>
 <script>

@@ -7,16 +7,9 @@
 <link rel="icon" href="<?php echo str_replace('en/','', content_url()); ?>/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="<?php echo str_replace('en/','', content_url()); ?>/favicon.ico" type="image/x-icon">
 <?php wp_head(); ?>
-<?php 
-$ct_form_active = get_post_meta(get_the_ID(),'ct-form-active',true);
-if($ct_form_active && $ct_form_active == '1') :
-?>
-<script>
-var RecaptchaOptions = {
-   lang : 'da',
-};
-</script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<?php $ct_form_active = get_post_meta(get_the_ID(),'ct-form-active',true);
+if($ct_form_active && $ct_form_active == '1') : ?>
+<script src='https://www.google.com/recaptcha/api.js?hl=<?php echo smamo_lang('da','en'); ?>'></script>
 <?php endif; ?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

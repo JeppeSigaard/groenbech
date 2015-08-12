@@ -114,7 +114,7 @@ if (!$resp->isSuccess()){
 }
 
 
-
+// Tjek for manglende felter
 foreach($formdata as $key => $val){
     
     if(!$val && $key !== 'kommentar'){
@@ -126,13 +126,38 @@ foreach($formdata as $key => $val){
     
 }
 
-function sendEmail($from,$to,$subject,$message){
-	$header = "From:".$from."\r\n"; 
-	$header.= "MIME-Version: 1.0\r\n"; 
-	$header.= "Content-Type: text/html; charset=utf-8\r\n"; 
-	$header.= "X-Priority: 1\r\n"; 
-	wp_mail($to, $subject, $message, $header);
+// opret sikkerhedskopi
+$make_post = wp_insert_post(array(
+    'post_type' => 'email',
+    'post_title' => $formdata['navn'].' '.date_i18n('Y/m/d H:i:s',time()),
+    'post_status' => 'publish',
+),true);
+
+if(is_wp_error($make_post)){
+    $response['error'] = $make_post->get_error_message();
+    echo json_encode($response);
+    exit;
 }
+
+if($formdata['locale']){update_post_meta($make_post, 'locale', $formdata['locale']);}
+if($formdata['email_rec']){update_post_meta($make_post, 'email_rec', $formdata['email_rec']);}
+if($formdata['post']){update_post_meta($make_post, 'post_id', $formdata['post']->ID);}
+if($formdata['navn']){update_post_meta($make_post, 'navn', $formdata['navn']);}
+if($formdata['email']){update_post_meta($make_post, 'email', $formdata['email']);}
+if($formdata['telefon']){update_post_meta($make_post, 'telefon', $formdata['telefon']);}
+if($formdata['kommentar']){update_post_meta($make_post, 'kommentar', $formdata['kommentar']);}
+
+// Send emails
+function sendEmail( $from_name, $from, $to, $subject, $message ){
+    $header = "From: ".$from_name." <".$from.">\r\n"; 
+    $header.= "MIME-Version: 1.0\r\n"; 
+    $header.= "Content-Type: text/html; charset=utf-8\r\n"; 
+    $header.= "X-Priority: 1\r\n"; 
+    $email = wp_mail($to, $subject, $message, $header);
+    return $email;
+}
+
+
 
 $titel = 'Ny meddelelse fra '.$formdata['navn'].' : "'.apply_filters('the_title',$formdata['post']->post_title).'"';
 
@@ -151,14 +176,23 @@ $body .= 'Venlig hilsen serveren';
 $kopi = ($formdata['locale'] == 'da_DK') ? 'Kopi: ' : 'Copy: ' ;
 
 // Send mail til email_rec
-sendEmail($formdata['email'],$formdata['email_rec'],$titel,$body);
-sleep(1);
-// Send mail til email
-sendEmail($formdata['email_rec'],$formdata['email'],$kopi.$titel,$body);
+$send = sendEmail( $formdata['navn'], $formdata['email'], $formdata['email_rec'], $titel, $body );
+if(!$send){
+    $response['error'] = 'Kunne ikke sende beskeden til Grønbech, prøv igen';
+    echo json_encode($response);
+    exit;
+}
+
+// Send kopi til afsender
+$send_copy = sendEmail( get_bloginfo('name'), $formdata['email_rec'], $formdata['email'], $kopi.$titel, $body );
+if(!$send){
+    $response['error'] = 'Kunne ikke sende kopi af beskeden';
+    echo json_encode($response);
+    exit;
+}
 
 
 // Send succesmeddelelse
 $response['success'] = ($formdata['locale'] == 'da_DK') ? 'Tak for din henvendelse' : 'Thank you for your message' ;
 echo json_encode($response);
-
-?>
+exit;

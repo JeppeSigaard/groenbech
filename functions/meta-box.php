@@ -11,6 +11,7 @@ function smamo_add_boxes(){
     require('meta-box/colors.php');
     require('meta-box/show-featured.php');
     require('meta-box/kontaktformular.php');
+    require('meta-box/email.php');
 
 
 return $mb;

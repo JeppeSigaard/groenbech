@@ -29,6 +29,7 @@ jQuery(function($){
 
     if (smamo_slider.length){
 
+        if(smamo_slider.children('.slide-item').length > 1){
         smamo_slider.owlCarousel({
             items : 1,
             loop: true,
@@ -38,7 +39,7 @@ jQuery(function($){
             nav: false,
 
         });
-
+        }
         addSmamoTimer();
         smamo_resize(smamo_slider);
         $(window).resize(function(){

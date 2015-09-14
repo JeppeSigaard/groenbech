@@ -41,10 +41,10 @@ jQuery(function($){
         });
         }
         addSmamoTimer();
-        smamo_resize(smamo_slider);
+        /*smamo_resize(smamo_slider);
         $(window).resize(function(){
             smamo_resize(smamo_slider);
-        });
+        });*/
     }
 
 

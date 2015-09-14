@@ -42,13 +42,16 @@ if(!empty($item) && empty($slide_link)){
     $slide_link = get_the_permalink($item->ID);
 }
 
-
+/*
 // Tags
 $tag_args = array('orderby' => 'count', 'order' => 'DESC');
 $tags = wp_get_post_terms($slide->ID,'emne',$tag_args);
 if (!empty($item) && empty($tags)){
     $tags = wp_get_post_terms($item->ID,'emne',$tag_args);
 }
+*/
+
+$tags = array(); // Empty array for no tags
 
 // Farvevælger
 $colors = array(

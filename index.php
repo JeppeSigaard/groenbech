@@ -10,7 +10,7 @@
             'order'            => 'DESC',
             'meta_key'         => 'show_featured',
             'meta_value'       => 1,
-            'post_type'        => array('page','medarbejder','referencer','case'),
+            'post_type'        => array('page','medarbejder','referencer','case','post'),
             'post_status'      => 'publish',
             'suppress_filters' => true,
             'num_words'        => 20,

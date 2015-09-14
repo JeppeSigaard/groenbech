@@ -6,6 +6,7 @@
         <?php include 'libs/includes/single-kontaktperson.php'; ?>
     </main>
     <aside role="complementary">
+        <?php include 'libs/includes/sidebar-form.php'; ?>
         <?php include 'libs/includes/sidebar-single.php'; ?>
     </aside>
     <?php endwhile; endif; ?>

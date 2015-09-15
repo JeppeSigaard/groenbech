@@ -5,7 +5,7 @@ template name: Nyhedsarkiv
 get_header(); ?>
 <section id="content">
     <main role="main" class="main-full">
-       <h1 class="single-title"><?php echo smamo_lang('Nyheder','News') ?></h1>
+       <h1 class="single-title"><?php the_title(); ?></h1>
         <?php $postlist_query = array(
             'posts_per_page'   => -1,
             'offset'           => 0,

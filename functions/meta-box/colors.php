@@ -10,6 +10,25 @@ $mb[] = array(
     'fields' => array(
 
         array(
+            'name'  => __( 'Topmenu', 'rwmb' ),
+            'id'    => "fakeid",
+            'type'    => 'heading',
+        ),
+
+        array(
+            'name'  => __( 'Topmenu farve', 'rwmb' ),
+            'id'    => "topmenu_color",
+            'type'    => 'radio',
+            'std'   => '2',
+				'options' => array(
+                    '0' => __( '<span style="color:#333333;">Mørk</span><br/>', 'meta-box' ),
+                    '1' => __( '<span style="color:#ffffff;background:#666;padding:0px 2px;">Hvid</span><br/>', 'meta-box' ),
+                    '2' => __( '<span style="color:#007f7f;">Grøn</span><br/>', 'meta-box' ),
+                    '3' => __( '<span style="color:#7f0000;">Rød</span><br/>', 'meta-box' ),
+				),
+        ),
+        
+        array(
             'name'  => __( 'Overskrift', 'rwmb' ),
             'id'    => "fakeid",
             'type'    => 'heading',

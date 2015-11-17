@@ -11,7 +11,9 @@ $slides = get_posts(array(
     'order'            => 'ASC',
 ));
 
-
+// enkelt?
+$single_class = (count($slides) === 1) ? ' single-slide' : '';
+    
 foreach($slides as $slide) :
 $item = '';
 if (get_post_meta($slide->ID,'from_post',true) !== ''){
@@ -27,6 +29,7 @@ $slide_img = wp_get_attachment_image_src(get_post_meta($slide->ID,'thumb',true),
 $tags = wp_get_post_terms($slide->ID,'gtag');
 
 
+    
 // Titel
 if(!empty($item) && empty($slide_title)){
     $slide_title = get_the_title($item->ID);
@@ -55,6 +58,7 @@ $tags = array(); // Empty array for no tags
 
 // Farvevælger
 $colors = array(
+    'topmenu_color' => (get_post_meta($slide->ID,'topmenu_color',true) !== '') ? get_post_meta($slide->ID,'topmenu_color',true) : '2',
     'header_color'  => 'hc-'.get_post_meta($slide->ID,'heading_color',true),
     'header_bg'     => 'hb-'.get_post_meta($slide->ID,'heading_bg',true),
     'tag_color'     => 'tc-'.get_post_meta($slide->ID,'tag_color',true),
@@ -70,7 +74,7 @@ if($colors['tag_bg'] == 'tb-'){$colors['tag_bg'] = 'tb-0';}
 // Rendér resultat -->
 if (!empty($slide_img) && !empty($slide_title)) : ?>
 
-    <div class="slide-item" style="background-image:url(<?php echo $slide_img[0]; ?>);">
+    <div class="slide-item<?php echo $single_class ?>" data-tmc="<?php echo $colors['topmenu_color'] ?>" style="background-image:url(<?php echo $slide_img[0]; ?>);">
         <a href="<?php echo $slide_link;?>">
             <span class="<?php echo $colors['header_color'] ?> <?php echo $colors['header_bg'] ?>"><?php echo $slide_title ?></span>
         </a>

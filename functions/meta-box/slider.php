@@ -43,7 +43,8 @@ $mb[] = array(
         array(
             'name' => __('Link','rwmb'),
             'id' => 'link',
-            'type'  => 'url'
+            'type'  => 'text',
+            'class' => 'translated-field'
         ),
 
         array(

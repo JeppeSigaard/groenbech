@@ -30,9 +30,6 @@ function updateHeaderColor(smamo_slider){
             menu = $('#top-menu'),
             prev = menu.attr('data-tmc');
         
-        
-        console.log(smamo_slider.find('.slide-item').length);
-        
         if(smamo_slider.find('.slide-item').length === 1){
             activeSlide = smamo_slider.find('.slide-item');
             tmc = activeSlide.attr('data-tmc');
